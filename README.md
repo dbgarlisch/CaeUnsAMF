@@ -1,6 +1,8 @@
 # caeplugin-AMF
 A Pointwise CAE plugin that exports a grid in the Additive Manufacturing File Format.
 
+![AMF][AMFlogo]
+
 Additive Manufacturing File Format (AMF) is an open standard for describing objects for additive manufacturing processes such as 3D printing. It is an XML-based format that describes the shape and composition of any 3D object to be fabricated on a 3D printer. Unlike the STL format, AMF has native support for color, materials, lattices, and constellations.
 
 For more information see:
@@ -33,6 +35,7 @@ INABILITY TO USE THESE SCRIPTS EVEN IF POINTWISE HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGES AND REGARDLESS OF THE FAULT OR NEGLIGENCE OF
 POINTWISE.
 
+[AMFlogo]: https://raw.github.com/dbgarlisch/CaeUnsAMF/master/AMF_icon.png  "AMF Logo"
 [AMFwiki]: http://amf.wikispaces.com/
 [AMFwikipedia]: http://en.wikipedia.org/wiki/Additive_Manufacturing_File_Format
 [SDKdocs]: http://www.pointwise.com/plugins
