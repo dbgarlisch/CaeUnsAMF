@@ -413,44 +413,8 @@ CaeUnsAMF::streamEnd(const PWGM_ENDSTREAM_DATA &data)
 bool
 CaeUnsAMF::create(CAEP_RTITEM &rti)
 {
-    (void)rti.BCCnt; // silence unused arg warning
-    bool ret = true;
-
-    // Uncomment this INFO attribute if your solver supports both big and
-    // little endian byte orderings.
-    //ret = ret && caeuAssignInfoValue("AllowedFileByteOrders",
-    //                "BigEndian|LittleEndian", true);
-
-    // Uncomment one of these INFO attributes if your solver requires a
-    // particular byte ordering.
-    //ret = ret && caeuAssignInfoValue("AllowedFileByteOrders", "BigEndian",
-    //                true);
-    //ret = ret && caeuAssignInfoValue("AllowedFileByteOrders", "LittleEndian",
-    //                true);
-
-    // These attributes are for example only. You can publish any attribute
-    // needed for your solver.
-    // ret = ret &&
-    //      caeuPublishValueDefinition("iterations", PWP_VALTYPE_UINT, "5",
-    //          "RW", "Number of iterations", "0 2000") &&
-    //      caeuPublishValueDefinition("magnitude", PWP_VALTYPE_INT, "-5",
-    //          "RW", "Signed int magnitude", "-100 100") &&
-    //      caeuPublishValueDefinition("mach", PWP_VALTYPE_REAL, "0.3", "RW",
-    //          "Incoming flow velocity", "-Inf +Inf 0.0 50.0") &&
-    //      caeuPublishValueDefinition("temperature", PWP_VALTYPE_REAL, "77.5",
-    //          "RW", "Ambient temperature", "-Inf +Inf -100.0 3000.0") &&
-    //      caeuPublishValueDefinition("temperature.units", PWP_VALTYPE_ENUM,
-    //          "Fahrenheit", "RW", "Grid temperature units", TempUnitEnum) &&
-    //      caeuPublishValueDefinition("description", PWP_VALTYPE_STRING, "",
-    //          "RW", "Grid description", "") &&
-    //      caeuPublishValueDefinition("linear", PWP_VALTYPE_BOOL, "reject",
-    //          "RW", "Grid is linear", "reject|accept");
-
-    ret = ret && caeuPublishValueDefinition(AttrUnits, PWP_VALTYPE_ENUM,
-        unitName(CaeUnsAMF::inch), "RW", "Dimensional units",
-        "mm|inch|ft|meters|micrometers");
-
-    return ret;
+    return publishEnumValueDef(rti, AttrUnits, unitName(CaeUnsAMF::inch),
+        "Dimensional units", "mm|inch|ft|meters|micrometers");
 }
 
 
@@ -459,7 +423,6 @@ CaeUnsAMF::create(CAEP_RTITEM &rti)
 //===========================================================================
 
 void
-CaeUnsAMF::destroy(CAEP_RTITEM &rti)
+CaeUnsAMF::destroy(CAEP_RTITEM &/*rti*/)
 {
-    (void)rti.BCCnt; // silence unused arg warning
 }
